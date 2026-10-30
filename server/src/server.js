@@ -34,7 +34,7 @@ async function startServer() {
     console.log('MongoDB connected successfully')
 
     // Start accepting requests only after MongoDB connects
-    server = app.listen(port, () => {
+    server = app.listen(port, '0.0.0.0', () => {
       console.log(`StaffSync API listening on http://localhost:${port}`)
     })
 
