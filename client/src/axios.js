@@ -1,12 +1,11 @@
-
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 10000,
+  timeout: 20000,
 })
 
 // Attach the saved login token to authenticated requests.
@@ -23,4 +22,3 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 )
 
-export default api
